@@ -14,7 +14,7 @@ import flowlayout.shared.generated.resources.Res
 import flowlayout.shared.generated.resources.compose_multiplatform
 import org.jetbrains.compose.resources.painterResource
 import androidx.compose.foundation.layout.*
-
+import androidx.compose.ui.Alignment
 @Composable
 @Preview
 fun Operations(
@@ -24,7 +24,10 @@ fun Operations(
 
     FlowRow(
         maxItemsInEachRow = 3,
-        modifier = modifier
+        modifier = modifier,
+        itemVerticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.Center,
     ) {
         for (i in 0..<5) {
             Text(
@@ -34,7 +37,7 @@ fun Operations(
         }
         Button(
             onClick = {},
-            modifier = Modifier.minimumInteractiveComponentSize(),
+            //modifier = Modifier.minimumInteractiveComponentSize(),
         ) {
             Text(
                 "Test Button",

@@ -57,15 +57,14 @@ fun App(
             } else {//horizontal layout
                 Row(
                     modifier = Modifier
-                        //.background(MaterialTheme.colorScheme.primaryContainer)
-                        .background(Color.Blue)
+                        .background(MaterialTheme.colorScheme.primaryContainer)
                         .safeContentPadding()
                         .fillMaxSize()
                     ,
                     horizontalArrangement = Arrangement.Center,
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Operations(modifier = Modifier.weight(0.3f).background(Color.Red).fillMaxHeight())
+                    Operations(modifier = Modifier.weight(0.3f).fillMaxHeight().fillMaxWidth())
                     MainView(modifier = Modifier.weight(0.7f).fillMaxHeight())
                 }
             }

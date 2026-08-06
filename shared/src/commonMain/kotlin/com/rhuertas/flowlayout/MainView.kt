@@ -21,7 +21,7 @@ fun MainView(
         painterResource(Res.drawable.compose_multiplatform),
         contentDescription = "mainview",
         contentScale = ContentScale.Fit,
-        modifier = modifier.background(color = Color.Green),
+        modifier = modifier,
 
     )
 }
