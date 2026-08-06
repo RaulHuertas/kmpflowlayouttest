@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.FlowColumn
 import androidx.compose.foundation.layout.FlowRow
+
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -33,7 +34,10 @@ import flowlayout.shared.generated.resources.compose_multiplatform
 
 @Composable
 @Preview
-fun App() {
+fun App(
+
+
+) {
     MaterialTheme {
         var showContent by remember { mutableStateOf(true) }
         FlowColumn(
@@ -44,8 +48,8 @@ fun App() {
                 //.fillMaxSize(1.0f)
             ,
             horizontalArrangement = Arrangement.Center,
-            verticalArrangement = Arrangement.Center,
-            itemHorizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Bottom,
+            itemHorizontalAlignment = Alignment.End,
             //maxItemsInEachColumn = 2,
         ) {
             FlowRow (
@@ -71,11 +75,12 @@ fun App() {
                 painterResource(Res.drawable.compose_multiplatform),
                 contentDescription = "mainview",
                 //Modifier.weight(1.0f, fill = true),
-                //modifier = Modifier.fillMaxSize()
+                modifier = Modifier.fillMaxWidth(1.0f)
                 //.weight(1.0f)
                 //modifier = Modifier.height(900.dp),
                 //contentScale = ContentScale.Fit,
             )
+
         }
     }
 }
