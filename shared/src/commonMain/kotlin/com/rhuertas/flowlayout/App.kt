@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -27,6 +28,8 @@ import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.window.core.layout.WindowSizeClass
+import androidx.window.core.layout.WindowWidthSizeClass
 import org.jetbrains.compose.resources.painterResource
 
 import flowlayout.shared.generated.resources.Res
@@ -35,8 +38,7 @@ import flowlayout.shared.generated.resources.compose_multiplatform
 @Composable
 @Preview
 fun App(
-
-
+    windowSizeClass: WindowSizeClass = currentWindowAdaptiveInfo().windowSizeClass
 ) {
     MaterialTheme {
         var showContent by remember { mutableStateOf(true) }
@@ -52,6 +54,42 @@ fun App(
             itemHorizontalAlignment = Alignment.End,
             //maxItemsInEachColumn = 2,
         ) {
+
+            //if (windowSizeClass == WindowWidthSizeClass.COMPACT) {
+            //    Text(
+            //        text = "Compact",
+            //        textAlign = TextAlign.Center,
+            //    )
+            //} else if (windowSizeClass == WindowWidthSizeClass.MEDIUM) {
+            //    Text(
+            //        text = "Medium",
+            //        textAlign = TextAlign.Center,
+            //    )
+            //} else if (windowSizeClass == WindowWidthSizeClass.EXPANDED) {
+            //    Text(
+            //        text = "Expanded",
+            //        textAlign = TextAlign.Center,
+            //    )
+            //} else if (windowSizeClass.isHeightAtLeastBreakpoint(400)) {
+            //    Text(
+            //        text = "YYY $windowSizeClass",
+            //        textAlign = TextAlign.Center,
+            //    )
+            //}
+
+            if (windowSizeClass.isHeightAtLeastBreakpoint(400)) {
+                Text(
+                    text = "This is a vertical layout",
+                    textAlign = TextAlign.Center,
+                )
+            }
+            else{
+                Text(
+                    text = "This is a horizontal layout",
+                    textAlign = TextAlign.Center,
+                )
+            }
+
             FlowRow (
                 //itemVerticalAlignment = Alignment.CenterVertically,
                 maxItemsInEachRow = 3,
@@ -80,6 +118,9 @@ fun App(
                 //modifier = Modifier.height(900.dp),
                 //contentScale = ContentScale.Fit,
             )
+
+
+
 
         }
     }
