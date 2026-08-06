@@ -21,6 +21,7 @@ import androidx.compose.material3.minimumInteractiveComponentSize
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.VerticalAlignmentLine
 import androidx.compose.ui.modifier.modifierLocalConsumer
@@ -40,8 +41,7 @@ fun App(
 ) {
     MaterialTheme {
         var showContent by remember { mutableStateOf(true) }
-
-            if (windowSizeClass.isHeightAtLeastBreakpoint(400)) {
+            if (windowSizeClass.minHeightDp>windowSizeClass.minWidthDp) {
                 Column(
                     modifier = Modifier
                         .background(MaterialTheme.colorScheme.primaryContainer)
@@ -57,14 +57,16 @@ fun App(
             } else {//horizontal layout
                 Row(
                     modifier = Modifier
-                        .background(MaterialTheme.colorScheme.primaryContainer)
-                        .fillMaxSize()
+                        //.background(MaterialTheme.colorScheme.primaryContainer)
+                        .background(Color.Blue)
                         .safeContentPadding()
+                        .fillMaxSize()
                     ,
                     horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Operations(modifier = Modifier.weight(0.4f))
-                    MainView(modifier = Modifier.weight(0.6f))
+                    Operations(modifier = Modifier.weight(0.3f).background(Color.Red).fillMaxHeight())
+                    MainView(modifier = Modifier.weight(0.7f).fillMaxHeight())
                 }
             }
 
