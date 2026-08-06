@@ -24,7 +24,7 @@ fun Operations(
 
     FlowRow(
         maxItemsInEachRow = 3,
-        modifier = modifier,
+        modifier = modifier.fillMaxWidth(),
         itemVerticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center,
         verticalArrangement = Arrangement.Center,
@@ -33,10 +33,12 @@ fun Operations(
             Text(
                 text = "Item $i",
                 textAlign = TextAlign.Center,
+                modifier = Modifier.fillMaxWidth(fraction =0.5f)
             )
         }
         Button(
             onClick = {},
+            modifier  = Modifier.fillMaxWidth(fraction = 0.5f)
             //modifier = Modifier.minimumInteractiveComponentSize(),
         ) {
             Text(
